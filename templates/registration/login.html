@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="container-fluid p-5 bg-success text-white text-center">
+    <h1>Log In to Detrash</h1>
+  </div>
+
+  <div class="container-fluid mt-3">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+{% endblock %}

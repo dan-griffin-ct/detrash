@@ -1,0 +1,37 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Create a Zone{% endblock %}
+
+{% block content %}
+  <div class="container-fluid p-5 bg-success text-white text-center">
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Zip Code</label>
+          <input name="zip_code" class="form-control" type="text" title="Five digit zip code" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">How bad is it?</label>
+          <select name="level_of_litter" class="form-select" aria-label="Default select example">
+            <option selected value="1">Not too bad</option>
+            <option value="2">Kind of gross</option>
+            <option value="3">This place needs some work</option>
+            <option value="4">Dear Lord please help</option>
+            <option value="5">Trashpocalypse</option>
+
+          </select>
+        </div>
+        <input class="btn btn-md btn-light" type="submit" value="Create Zone">
+    </form>
+  </div>
+  <div class="container-fluid mt-5">
+    <a href="/" type="button" class="btn btn-md btn-success">Go Home</a>
+  </div>
+{% endblock %}
+
+
+<!-- <form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form> -->

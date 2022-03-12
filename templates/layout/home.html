@@ -1,0 +1,43 @@
+<!-- templates/layout/home.html -->
+
+{% extends 'layout/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid p-5 bg-success text-white text-center">
+  <h1>Detrash</h1>
+  <div class="mb-5">
+    <p>Let's clean this place.</p>
+  </div>
+  <p>Welcome {% if user.is_authenticated %} {{ user.email }} {% endif %}</p> 
+</div>
+  
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3 class="text-success">Zones</h3>
+      <p>Create a Zone where there's litter</p>
+      <p>You can register a new Zone by zip code</p>
+      <div class="mb-3">
+        <a class="btn btn-success" href="{% url 'create-zone' %}" role="button">Create a Zone</a>
+      </div>
+      <div>
+        <a class="btn btn-success" href="{% url 'list-zone' %}" role="button">See all Zones</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-success">Meet Ups</h3>
+      <p>Alert others of a Zone near them that needs clean up</p>
+      <p>The more people that meet up, the more litter that gets picked up!</p>
+    </div>
+    <div class="col-sm-4">
+      <h3 class="text-success">The Planet</h3>        
+      <p>There's a lot of <a target="_blank" href="https://www.washingtonpost.com/news/energy-environment/wp/2017/07/19/theres-literally-a-ton-of-plastic-garbage-for-every-person-in-the-world/">litter</a> on Earth</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Zone List{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-5 bg-success text-white text-center">
+        <h1>Zones</h1>
+    </div>
+
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Zip Code</th>
+            <th scope="col">Last Reported Level of Litter</th>
+            <th scope="col">Times Reported</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zone in object_list %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ zone.zip_code }} </td>
+                    <td>{{ zone.get_level_of_litter_display }}</td>
+                    <td>{{ zone.times_reported }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="container-fluid mt-5">
+        <a class="btn btn-success" href="{% url 'create-zone' %}" role="button">Create a Zone</a>
+    </div>
+    <div class="container-fluid mt-3">
+        <a href="/" type="button" class="btn btn-md btn-success">Go Home</a>
+    </div>
+
+
+{% endblock %}
