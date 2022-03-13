@@ -24,4 +24,6 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('zones/', include('zones.urls')),
     path('', TemplateView.as_view(template_name='layout/home.html'), name='home'),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
