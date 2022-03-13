@@ -76,12 +76,6 @@ TEMPLATES = [
     },
 ]
 
-# ELASTICSEARCH_DSL={
-#     'default': {
-#         'hosts': 'localhost:9200'
-#     },
-# }
-
 
 WSGI_APPLICATION = 'detrash.wsgi.application'
 
@@ -94,13 +88,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
-
-# elasticsearch
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': 'localhost:9200'
-    },
 }
 
 # Password validation
@@ -140,6 +127,17 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = "/static/"
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -5,6 +5,13 @@
 {% block content %}
     <div class="container-fluid p-5 bg-success text-white text-center">
         <h1>Zones</h1>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 
     <table class="table table-success table-striped">

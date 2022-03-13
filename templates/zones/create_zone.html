@@ -8,8 +8,9 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Zip Code</label>
-          <input name="zip_code" class="form-control" type="text" title="Five digit zip code" />
+          <input id="zipcode" name="zip_code" class="form-control" data-zipcode-url="{% url 'zipcode-lookup' %}" oninput="zipCodeLookup()" type="text" title="Five digit zip code" />
         </div>
+        <div id="myData"></div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">How bad is it?</label>
           <select name="level_of_litter" class="form-select" aria-label="Default select example">
@@ -28,10 +29,3 @@
     <a href="/" type="button" class="btn btn-md btn-success">Go Home</a>
   </div>
 {% endblock %}
-
-
-<!-- <form action="/your-name/" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
-</form> -->
