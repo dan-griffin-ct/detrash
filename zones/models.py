@@ -10,7 +10,7 @@ class Zone(models.Model):
         ("4", "Dear Lord please help"),
         ("5", "Trashpocalypse"),
     )
-
+    reported_by = models.CharField(max_length=256, null=False, blank=False)
     zip_code = models.CharField(max_length=10, null=False, blank=False)
     city = models.CharField(max_length=256, null=False, blank=False)
     level_of_litter = models.CharField(max_length=100, null=False,

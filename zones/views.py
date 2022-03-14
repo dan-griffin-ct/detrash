@@ -19,7 +19,9 @@ class ZoneCreateView(TemplateView):
         validated_zip_code = zipcodes.matching(zip_code)
 
         if validated_zip_code:
-            zone, created = Zone.objects.update_or_create(zip_code=zip_code, defaults={'level_of_litter': request.POST['level_of_litter'], 'city': validated_zip_code[0]['city']})
+            zone, created = Zone.objects.update_or_create(zip_code=zip_code, defaults={'level_of_litter': request.POST['level_of_litter'],
+                                                                                       'city': validated_zip_code[0]['city'],
+                                                                                       'reported_by': request.user.email})
         else:
             messages.add_message(request, messages.INFO, 'Shoot! Please try entering a valid zip code to create a new Zone.')
 
