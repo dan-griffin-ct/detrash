@@ -5,8 +5,6 @@ a work-in-progress Python/Django project dedicated to litter awareness and clean
 
 ## Libraries
 
-import foobar
-
 ### Django==4.0
 [Django](https://docs.djangoproject.com/en/4.0/)
 
