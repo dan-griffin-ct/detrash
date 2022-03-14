@@ -7,12 +7,12 @@
     <form method="POST" action=".">
         {% csrf_token %}
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Zip Code</label>
+          <label for="exampleFormControlInput1" class="form-label"><strong>Zip Code</strong></label>
           <input id="zipcode" name="zip_code" class="form-control" data-zipcode-url="{% url 'zipcode-lookup' %}" oninput="zipCodeLookup()" type="text" title="Five digit zip code" />
         </div>
         <div id="myData"></div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">How bad is it?</label>
+          <label for="exampleFormControlTextarea1" class="form-label"><strong>How bad is it?</strong></label>
           <select name="level_of_litter" class="form-select" aria-label="Default select example">
             <option selected value="1">Not too bad</option>
             <option value="2">Kind of gross</option>
