@@ -15,24 +15,20 @@ class ZoneCreateView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        print(f'self {self} request {request.POST}')
         zip_code = request.POST['zip_code']
         validated_zip_code = zipcodes.matching(zip_code)
+
         if validated_zip_code:
-            zone, created = Zone.objects.update_or_create(zip_code=zip_code, defaults={'level_of_litter': request.POST['level_of_litter']})
-            print(f'{created}, zone {zone}')
+            zone, created = Zone.objects.update_or_create(zip_code=zip_code, defaults={'level_of_litter': request.POST['level_of_litter'], 'city': validated_zip_code[0]['city']})
         else:
             messages.add_message(request, messages.INFO, 'Shoot! Please try entering a valid zip code to create a new Zone.')
 
         return HttpResponseRedirect('/zones/list/')
 
 
-class ZoneListView(ListView):
+class ZoneListView(TemplateView):
     
     template_name = 'zones/list_zone.html'
-
-    model = Zone
-    paginate_by = 25  # if pagination is desired
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

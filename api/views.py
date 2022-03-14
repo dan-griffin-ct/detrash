@@ -17,3 +17,17 @@ class ZoneListApiView(APIView):
         zones = Zone.objects.all().order_by('times_reported')
         serializer = ZoneSerializer(zones, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# class ZoneDetailApiView(APIView):
+#     # add permission to check if user is authenticated
+#     permission_classes = [permissions.IsAuthenticated]
+
+#     def get_object(self, zone_id):
+#         # Helper method to get the object with given zone_id
+
+#         try:
+#             return Zone.objects.get(id=zone_id)
+#         except Zone.DoesNotExist:
+#             return None
+

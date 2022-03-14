@@ -13,25 +13,16 @@
             </ul>
         {% endif %}
     </div>
-
+    <input type="hidden" id="zone-api" data-zoneapi-url="{% url 'api-zone-list' %}"/>
     <table class="table table-success table-striped">
         <thead>
             <tr>
-            <th scope="col">#</th>
             <th scope="col">Zip Code</th>
             <th scope="col">Last Reported Level of Litter</th>
             <th scope="col">Times Reported</th>
             </tr>
         </thead>
-        <tbody>
-            {% for zone in object_list %}
-                <tr>
-                    <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ zone.zip_code }} </td>
-                    <td>{{ zone.get_level_of_litter_display }}</td>
-                    <td>{{ zone.times_reported }}</td>
-                </tr>
-            {% endfor %}
+        <tbody id="zone-table-body">
         </tbody>
     </table>
     <div class="container-fluid mt-5">

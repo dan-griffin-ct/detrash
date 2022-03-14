@@ -12,6 +12,7 @@ class Zone(models.Model):
     )
 
     zip_code = models.CharField(max_length=10, null=False, blank=False)
+    city = models.CharField(max_length=256, null=False, blank=False)
     level_of_litter = models.CharField(max_length=100, null=False,
                                        blank=False,
                                        choices=LITTER_LEVEL_CHOICES,
